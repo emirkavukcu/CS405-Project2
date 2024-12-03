@@ -1,25 +1,3 @@
-/**
- * @Instructions
- * 		@task1 : Complete the setTexture function to handle non power of 2 sized textures
- * 		@task2 : Implement the lighting by modifying the fragment shader, constructor,setMesh, draw, setAmbientLight, setSpecularLight and enableLighting functions
- *      @task3: Introduce specular lighting to simulate reflective surfaces, enhancing
-        the realism of the rendered scenes.
-        Modify the shader code to calculate specular highlights based on the
-        Phong reflection model.
-        The specular intensity should be adjustable through a new slider
-        labeled "Specular Light Intensity."
-        Add a function to handle specular light calculations and update the
-        rendering pipeline.
-        fragment shader (meshFS): Include specular light calculations using a
-        view vector and shininess exponent.
- *      @task4: materials (e.g., combining a base color texture with a normal map for
-        surface details).
-        Modify the code to accept and blend multiple textures dynamically and
-        add an interface for users to upload and toggle between textures.
- * 		 
- */
-
-
 function GetModelViewProjection(projectionMatrix, translationX, translationY, translationZ, rotationX, rotationY) {
 
   var trans1 = [
@@ -173,7 +151,6 @@ class MeshDrawer {
     if (isPowerOf2(img.width) && isPowerOf2(img.height)) {
       gl.generateMipmap(gl.TEXTURE_2D);
     } else {
-      console.error("Task 1: Non power of 2, you should implement this part to accept non power of 2 sized textures");
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
